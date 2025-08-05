@@ -1,0 +1,7 @@
+# Ignore the large dataset file
+chatgpt_reviews_all_data.csv
+
+# Ignore Python and Jupyter temporary files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
