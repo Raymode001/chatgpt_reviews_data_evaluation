@@ -191,6 +191,78 @@ Average monthly score fluctuates more drastically in the early months, with majo
 - The analysis examples show that TextBlob is good at identifying overtly positive reviews but can struggle with recognizing the sentiment in more nuanced text, especially in negative reviews. Many reviews with strong opinions are given neutral polarity scores.
 - The boxplot shows a strong positive correlation between user star ratings and the sentiment polarity of the review text, confirming the dataset's suitability for sentiment analysis.
 
+### 8. Pain Point Analysis
+
+#### Top 5 User Pain Point Topics (LDA Analysis on Negative Reviews)
+
+| Topic | Keywords |
+|-------|----------|
+| Topic 1 | slow, answer, question, version, ask, information, paid, useless |
+| Topic 2 | login, something, phone, wrong, one, keep, help, free |
+| Topic 3 | update, voice, like, image, open, hate, please, new |
+| Topic 4 | star, photo, people, take, able, data, much, language | 
+| Topic 5 | time, answer, please, wrong, error, really, like, waste | 
+
+**Observations**:
+- **Pain Point 1: Performance/Slowness Issues** - Users complain that the app is slow or has performance issues. This is direct feedback for the app development team to prioritize performance optimization.
+- **Pain Point 2: Login/Phone Version Issues** - Users complain about persistent problems with logging in, potentially on phone versions of the app. This points to a critical-path issue blocking user access.
+- **Pain Point 3: Additional Capabilities Issues** - Users complain about the app's weakness in processing or generating content through non-text media such as images, photos or audio. This provides feedback for future product development.
+- **Pain Point 4: Update-related Issues** - Users complain that the app has become worse or doesn't work since a recent update, or that an outdated feature requires an update. This suggests a potential issue in the quality assurance (QA) and release process.
+- **Pain Point 5: Accuracy Issues** - Users complain about the inaccuracy or the existence of errors in the AI's generated answers. This offers feedback on the core AI model's quality.
+
+### 9. Trend Analysis with Different Pain Points
+
+#### Performance/Slowness Issues Trend
+![Performance/Slowness Issues](images/performanceslowness_issues.png)
+
+#### Login/Phone Version Issues Trend
+![Login/Phone Version Issues](images/loginphone_version_issues.png)
+
+#### Additional Capabilities Issues Trend
+![Additional Capabilities Issues](images/additional_capabilities_issues.png)
+
+#### Accuracy Issues Trend
+![Accuracy Issues](images/accuracy_issues.png)
+
+#### Update-Related Issues Trend
+![Update-Related Issues](images/update-related_issues.png)
+
+#### Example Detailed Analysis - Version 1.2025.196 (Additional Capabilities Issues)
+
+| Date | Review Content |
+|------|----------------|
+| 2025-07-21 | this app is very dump and stupidity we can't get the images we want this application is useless |
+| 2025-07-26 | I hate this app I waited for 20 days and he didn't give me my photo generate please improve your stupid chatgpt understand |
+| 2025-07-24 | chatgpt only gives sugar coated false promises bluffing of actual doing job asking for more n more time. in Actual doing nothing.. totally waste of time.. provides either dummy files or links which doesn't exist not working zip files.. It seems pirated copy of actual AI.. dumb software gives lame excuses like Humans... |
+| 2025-07-22 | This app is not good I want to generate a thumbnail for my YouTube video it take 30 minutes to generate and the image was wrong then I ask to generate another one and it says you can generate it after 24 hours |
+| 2025-07-22 | Speech to Text features crash constantly, losing all the recorded audio. This issue has been since the start of the feature and has caused me to lose hours in dropped audios. This happens even with 1 min audios! The rest of the app works well, but there's a major flaw when an advanced AI agent is incapable of granting some basic audio integrity. Please OpenAI team, put solution to such simple yet important aspect. |
+
+**Observations**:
+In all of "Performance/Slowness Issues", "Login/Phone Version Issues", "Accuracy Issues" and "Update-Related Issues" charts, the spikes of negative reviews by proportion clearly declined, signaling a successful containment of the issues with newer fixes and updates. The slight growth in "Additional Capabilities Issues" chart also correspond to the rollout of new media features (voice, image), indicating that these new features are a consistent source of user friction. Therefore, the dataset is of high quality for this analysis.
+
+Overall, this spike-driven analysis proves to be helpful for identifying potentially problematic app versions. The NLP team, in turn, can use these findings to create highly targeted datasets for deeper analysis, sampling reviews from a specific topic within a specific version's release window.
+
+### 10. N-Gram Analysis of Almost Perfect Reviews
+
+#### Top 10 Three-Word Phrases in 4-Star Reviews with Suggestions
+
+![Top 10 Three-Word Phrases](images/top_tri_gramsbar.png)
+
+Analysis of 535 4-star reviews, with 115 containing suggestion keywords (but, wish, however, needs, if only, suggestion).
+
+#### Example 4-Star Reviews with Suggestions
+
+| Date | Three-Word Call Phrases | Review Content |
+|------|------------|----------------|
+| 2025-06-04 | answers, correct, unwanted | many answers were correct but some unwanted |
+| 2025-01-27 | really, good, limitations | it's really good but it has some limitations |
+| 2025-04-01 | great, app, overall | it doesn't give much option but a great app overall |
+| 2025-04-14 | great, app, overall | ★★★★☆ ChatGPT is one of the best AI tools I've used. It gives helpful and accurate answers most of the time, and I like how friendly and easy it is to talk to. It really feels like chatting with a smart friend. However, sometimes it can get a bit annoying when it adds extra things I didn't ask for. Still, it's a great app overall and really useful for learning and fun conversations. |
+| 2025-02-26 | great, app, overall | I've been using the ChatGPT app for a while now and overall, it's been a fantastic tool for everything from casual conversation to solving complex queries. The AI is incredibly helpful, and it provides responses that are informative and relevant to a variety of topics. However, there's a small issue that could be improved.(Whenever I use the app and click the back button, it exits the app on the first click). It would be great if there was a confirmation before the app closes. |
+
+**Observations**:
+The causes for minor dissatisfactions are diverse, and there aren't common issues that are shared across the board for users with great but not perfect experiences. The nuance of the feedbacks has excellent potential for more advanced NLP analysis.
+
 ## Required Modules
 
 To run this project, you'll need to install the following Python packages:
@@ -212,7 +284,9 @@ pip install textblob
 ### Core Files
 - **`chatgpt_reviews_scraper_notebook.ipynb`**: Main scraping notebook that collects all reviews from Google Play Store and creates a random sample of 10,000 reviews
 - **`exploratory_analysis.ipynb`**: Comprehensive analysis notebook containing all visualizations and insights
+- **`02_exploratory_analysis.ipynb`**: Advanced analysis notebook focusing on pain point analysis, trend analysis, and n-gram analysis,  with different pain points
 - **`chatgpt_reviews_sample.csv`**: Random sample of 10,000 reviews used for analysis
+- **`utils.py`**: Utility module containing helper functions for text preprocessing and analysis used by the notebooks
 
 ### Images Folder
 - **`images/`**: Contains all generated charts and visualizations from the analysis
@@ -232,11 +306,19 @@ pip install textblob
 
 5. **Topic Diversity**: Topic modeling revealed 8 distinct themes including functionality, learning, student use, and technical issues.
 
+6. **Pain Point Identification**: LDA analysis on negative reviews identified 5 key pain points: Performance/Slowness Issues, Login/Phone Version Issues, Additional Capabilities Issues, Update-related Issues, and Accuracy Issues.
+
+7. **Version-Specific Issues**: Trend analysis reveals that most pain points have been successfully addressed over time, except for Additional Capabilities Issues which continue to grow with new feature rollouts.
+
+8. **4-Star Review Insights**: Analysis of almost perfect reviews shows diverse and nuanced feedback, indicating that minor dissatisfactions vary significantly between users.
+
 ## Usage
 
-1. Run `chatgpt_reviews_scraper_notebook.ipynb` to scrape fresh data from Google Play Store
-2. Run `exploratory_analysis.ipynb` to perform the complete analysis and generate visualizations
-3. All charts and insights will be saved to the `images/` folder
+1. Ensure `utils.py` is in the same directory as the notebooks (contains required helper functions)
+2. Run `chatgpt_reviews_scraper_notebook.ipynb` to scrape fresh data from Google Play Store
+3. Run `exploratory_analysis.ipynb` to perform the complete analysis and generate visualizations
+4. Run `02_exploratory_analysis.ipynb` for advanced pain point analysis, trend analysis, and n-gram analysis
+5. All charts and insights will be saved to the `images/` folder
 
 ## Data Quality Notes
 
