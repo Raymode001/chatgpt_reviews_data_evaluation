@@ -26,11 +26,11 @@ This project analyzes user reviews of the ChatGPT mobile app from Google Play St
 
 ### Reasons for Choosing The Above Sampling Method
 
-- **Representative**: Random sampling provides an unbiased representation of the entire data source population.
-- **Efficient**: Significantly reduces computational overhead while maintaining statistical validity.
-- **Reproducible**: Fixed random seed ensures consistent results across different analysis sessions.
-- **Statistically Sound**: 10,000 reviews provide sufficient sample size for most statistical analyses.
-- **Manageable**: Allows for detailed exploratory analysis without overwhelming computational resources.
+- **Representativeness**: Random sampling provides an unbiased representation of the entire data source population.
+- **Sampling Efficiency**: Significantly reduces computational overhead while maintaining statistical validity.
+- **Reproducibility**: Fixed random seed ensures consistent results across different analysis sessions.
+- **Sufficient Sample Size**: 10,000 reviews provide sufficient sample size for most statistical analyses.
+- **Efficiency of Analysis**: Allows for detailed exploratory analysis without overwhelming computational resources.
 
 ### Limitations of Choosing The Above Sampling Method:
 - **Subgroup Analysis Limitations**: The sample reflects the overall distribution of the data source and thus may not have enough representation of specific subgroups. For the purpose of pain point analysis, the sample may not give the strongest representation of negative reviews.
