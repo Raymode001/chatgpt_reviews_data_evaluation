@@ -18,6 +18,24 @@ This project analyzes user reviews of the ChatGPT mobile app from Google Play St
 | `repliedAt` | `datetime` or `null`| The timestamp of when the developer replied. |
 | `appVersion` | `string` or `null`| The version of the app the review pertains to. |
 
+## Sampling Methodology
+
+**Random Sampling**: From the complete dataset, a random sample of 10,000 reviews was extracted using pandas' `sample()` function with the following parameters:
+   - `n=10000`: Sample size of 10,000 reviews
+   - `random_state=42`: Fixed random seed for reproducibility
+
+### Reasons for Choosing The Above Sampling Method
+
+- **Representative**: Random sampling provides an unbiased representation of the entire data source population.
+- **Efficient**: Significantly reduces computational overhead while maintaining statistical validity.
+- **Reproducible**: Fixed random seed ensures consistent results across different analysis sessions.
+- **Statistically Sound**: 10,000 reviews provide sufficient sample size for most statistical analyses.
+- **Manageable**: Allows for detailed exploratory analysis without overwhelming computational resources.
+
+### Limitations of Choosing The Above Sampling Method:
+- **Subgroup Analysis Limitations**: The sample reflects the overall distribution of the data source and thus may not have enough representation of specific subgroups. For the purpose of pain point analysis, the sample may not give the strongest representation of negative reviews.
+- **Dependency on Source Quality**: The quality of the sample depends entirely on the quality and completeness of the data source, i.e. the scraped data from Google Play Store.
+
 ## Analysis Results and Visualizations
 
 ### Data Cleaning and Validation
