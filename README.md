@@ -111,6 +111,8 @@ The score is skewed heavily towards extreme positive.
 
 ### 2. Time-Based Analysis
 
+![Average Monthly Score Plot](images/monthlyaveragescore.png)
+
 Average monthly score fluctuates more drastically in the early months, with major valleys, likely reflecting unstable performance with earlier updates. However, the overall trend stays steadily above 4, signaling general user satisfaction since the app was launched.
 
 ### 3. Language Distribution Analysis
